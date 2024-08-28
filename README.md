@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://bmarslandcn.github.io/scott-kelly-iss-gorilla-suit-minigame/](https://bmarslandcn.github.io/scott-kelly-iss-gorilla-suit-minigame/)
+> Open this page at [https://Code-Ninjas-Home-Office.github.io/scott-kelly-iss-gorilla-suit-minigame/](https://bmarslandcn.github.io/scott-kelly-iss-gorilla-suit-minigame/)
 
 ## Use as Extension
 
@@ -12,7 +12,7 @@ This repository can be added as an **extension** in MakeCode.
 * click on **Extensions** under the gearwheel menu
 * search for **https://github.com/bmarslandcn/scott-kelly-iss-gorilla-suit-minigame** and import
 
-## Edit this project ![Build status badge](https://github.com/bmarslandcn/scott-kelly-iss-gorilla-suit-minigame/workflows/MakeCode/badge.svg)
+## Edit this project ![Build status badge](https://github.com/Code-Ninjas-Home-Office/scott-kelly-iss-gorilla-suit-minigame/workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
@@ -25,7 +25,7 @@ To edit this repository in MakeCode.
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/bmarslandcn/scott-kelly-iss-gorilla-suit-minigame/raw/master/.github/makecode/blocks.png)
+![A rendered view of the blocks](https://github.com/Code-Ninjas-Home-Office/scott-kelly-iss-gorilla-suit-minigame/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (used for search, rendering)
 
