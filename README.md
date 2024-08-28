@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://bmarslandCN.github.io/scott-kelly-iss-gorilla-suit-minigame/](https://bmarslandcn.github.io/scott-kelly-iss-gorilla-suit-minigame/)
+> Open this page at [https://code-ninjas-home-office.github.io/scott-kelly-gorilla-suit/](https://code-ninjas-home-office.github.io/scott-kelly-gorilla-suit/)
 
 ## Use as Extension
 
@@ -10,22 +10,22 @@ This repository can be added as an **extension** in MakeCode.
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
-* search for **https://github.com/bmarslandcn/scott-kelly-iss-gorilla-suit-minigame** and import
+* search for **https://code-ninjas-home-office.github.io/scott-kelly-gorilla-suit/** and import
 
-## Edit this project ![Build status badge](https://github.com/Code-Ninjas-Home-Office/scott-kelly-iss-gorilla-suit-minigame/workflows/MakeCode/badge.svg)
+## Edit this project ![Build status badge](https://code-ninjas-home-office.github.io/scott-kelly-gorilla-suit//workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/bmarslandcn/scott-kelly-iss-gorilla-suit-minigame** and click import
+* paste **https://code-ninjas-home-office.github.io/scott-kelly-gorilla-suit/** and click import
 
 ## Blocks preview
 
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/Code-Ninjas-Home-Office/scott-kelly-iss-gorilla-suit-minigame/raw/master/.github/makecode/blocks.png)
+![A rendered view of the blocks](https://code-ninjas-home-office.github.io/scott-kelly-gorilla-suit/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (used for search, rendering)
 
