@@ -1,4 +1,4 @@
-# Scott Kelly: ISS Gorilla Mini-Game Tutorial
+# Scott Kelly ISS Gorilla Mini-Game Tutorial
 
 ```package
 arcade-timers=github:microsoft/arcade-timers
@@ -30,6 +30,17 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`closedBoxTile`, function (spr
     tiles.setTileAt(location, assets.tile`openBoxTile`)
     gorillaGame()
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`damagedPanelRight`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`solarPanelRight`)
+    info.changeScoreBy(1)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, location) {
+    if (sprite.image.equals(assets.image`spacesuitRight`) || sprite.image.equals(assets.image`spacesuitLeft`)) {
+        sprite.setImage(assets.image`scottKellyLeft`)
+        tiles.setWallAt(tiles.getTileLocation(24, 11), true)
+        tiles.setWallAt(tiles.getTileLocation(24, 12), true)
+    }
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     if (scottKellySprite.image.equals(assets.image`scottKellyRight`)) {
         scottKellySprite.setImage(assets.image`scottKellyLeft`)
@@ -47,6 +58,17 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`bookTile`, function (sprite, 
     game.showLongText("You have collected " + objectsCollected + " of 6 objects!", DialogLayout.Center)
     objectsCollected += 1
 })
+function spaceWalkGame () {
+    game.showLongText("Let's go for a space walk! Try to fix all the broken solar panels!", DialogLayout.Center)
+    info.setScore(0)
+    scottKellySprite.setImage(assets.image`spacesuitRight`)
+    for (let index = 0; index < 3; index++) {
+        tiles.setTileAt(tiles.getTileLocation(randint(8, 14), randint(15, 16)), assets.tile`damagedPanelLeft`)
+        tiles.setTileAt(tiles.getTileLocation(randint(8, 14), randint(18, 19)), assets.tile`damagedPanelLeft`)
+        tiles.setTileAt(tiles.getTileLocation(randint(17, 23), randint(15, 16)), assets.tile`damagedPanelRight`)
+        tiles.setTileAt(tiles.getTileLocation(randint(17, 23), randint(18, 19)), assets.tile`damagedPanelRight`)
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, location) {
     tiles.setTileAt(location, assets.tile`myTile20`)
     timer.after(500, function () {
@@ -76,6 +98,15 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile17`, function (sprite, 
         tiles.setTileAt(location, assets.tile`myTile17`)
     })
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`damagedPanelLeft`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`solarPanelLeft`)
+    info.changeScoreBy(1)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`spaceWalkTile`, function (sprite, location) {
+    tiles.setTileAt(tiles.getTileLocation(25, 11), assets.tile`transparency16`)
+    tiles.setTileAt(tiles.getTileLocation(25, 12), assets.tile`transparency16`)
+    spaceWalkGame()
+})
 function gorillaGame () {
     game.showLongText("My twin brother Mark sent me a gorilla suit to have some fun with the ISS crew!", DialogLayout.Center)
 }
@@ -96,6 +127,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`clipboardTile`, function (spr
     game.showLongText("We have lots of tasks and chores to complete every day - even on the weekends! ", DialogLayout.Center)
     game.showLongText("You have collected " + objectsCollected + " of 6 objects!", DialogLayout.Center)
     objectsCollected += 1
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile23`, function (sprite, location) {
+    if (sprite.image.equals(assets.image`spacesuitRight`) || sprite.image.equals(assets.image`spacesuitLeft`)) {
+        sprite.setImage(assets.image`scottKellyLeft`)
+        tiles.setWallAt(tiles.getTileLocation(24, 11), true)
+        tiles.setWallAt(tiles.getTileLocation(24, 12), true)
+    }
 })
 let crew: Sprite = null
 let scottKellySprite: Sprite = null
@@ -142,8 +180,7 @@ forever(function () {
             sprites.destroy(value)
         }
         scene.setBackgroundImage(assets.image`scottKellySplash`)
-        game.showLongText("Thanks for spending a day with me on the International Space Station!", DialogLayout.Bottom)
-        game.showLongText("I hope you learned a lot and had some fun, too!", DialogLayout.Bottom)
+        game.showLongText("Thanks for spending a day with me on the International Space Station! I hope you learned a lot and had some fun, too!", DialogLayout.Bottom)
         if (info.score() == 1) {
             game.showLongText("Thanks for fixing that solar panel!", DialogLayout.Bottom)
         } else if (info.score() > 1) {
@@ -227,10 +264,10 @@ Be sure to playtest your game after each step of the tutorial!
 
 Code the gorilla-suited Scott Kelly sprite to scare his fellow crew members when they overlap.
 
-- :paper plane: From ``||sprites:Sprites||`` drag the ``||sprites:on sprite overlaps otherSprite||`` container into the coding area, near the ``||function:function gorillaGame||`` container.
-- :shuffle: This container already has an ``||logic:if||`` **conditional** inside that will only scare Crew member sprites *if* Scott Kelly is wearing the gorilla suit.
-- :paper plane: From ``||sprites:Sprites||`` drag ``||sprites:mySprite say||`` and ``||sprites:set mySprite ghost||`` into the ``||logic:if||``.
-- :mouse pointer: Drag the ``||variables:otherSprite||`` bubble from the ``||sprites:overlaps||`` container to replace ``||variables:mySprite||`` in those blocks.
+- :paper plane: From ``||sprites:Sprites||`` drag the ``||sprites:on sprite overlaps otherSprite||`` container into the coding area, near the ``||functions(no click):function gorillaGame||`` container.
+- :shuffle: This container already has an ``||logic(no click):if||`` **conditional** inside that will only scare Crew member sprites *if* Scott Kelly is wearing the gorilla suit.
+- :paper plane: From ``||sprites:Sprites||`` drag ``||sprites:mySprite say||`` and ``||sprites:set mySprite ghost||`` into the ``||logic(no click):if||``.
+- :mouse pointer: Drag the ``||variables(no click):otherSprite||`` bubble from the ``||sprites(no click):on sprite overlaps otherSprite||`` container to replace ``||variables(no click):mySprite||`` in those blocks.
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
@@ -266,8 +303,8 @@ namespace SpriteKind {
 
 Use a **variable** to keep track of how many crew members were scared! This number will show at the end of the game.
 
-- :align justify: From ``||variables:Variables||`` drag ``||variables:set to 0||`` into the bottom of ``||functions(no click):function gorillaGame||`` then select ``||variables:scareCount||`` from the drop down.
-- :align justify: From ``||variables:Variables||`` drag ``||variables:change by 1||`` into the bottom of ``||logic:if||`` then select ``||variables:scareCount||`` from the drop down to increase the **variable** for each scared crew member.
+- :align justify: From ``||variables:Variables||`` drag ``||variables:set to 0||`` into the bottom of ``||functions(no click):function gorillaGame||`` then select ``||variables(no click):scareCount||`` from the drop down.
+- :align justify: From ``||variables:Variables||`` drag ``||variables:change by 1||`` into the bottom of ``||logic(no click):if||`` then select ``||variables(no click):scareCount||`` from the drop down to increase the **variable** for each scared crew member.
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
@@ -300,10 +337,10 @@ let scareCount= 0
 
 Set a countdown timer that starts when Scott Kelly first puts on the gorilla suit, then ends 10 seconds later and removes the gorilla suit.
 
-- :id card: From ``||info:Info||`` drag ``||info:start countdown||`` into the bottom of ``||function:function gorillaGame||``.
+- :id card: From ``||info:Info||`` drag ``||info:start countdown||`` into the bottom of ``||functions(no click):function gorillaGame||``.
 - :id card: From ``||info:Info||`` drag the entire ``||info:on countdown end||`` container into the coding area.
-- :paper plane: From ``||sprites:Sprites||`` drag ``||sprites:set scottKellySprite image to||`` and ``||sprites:set scottKellySprite ghost through tiles||`` into the bottom of the ``||info:on countdown end||`` container.
-- :tree: From ``||scene:Scene||`` drag ``||scene:end screen effect||`` underneath.
+- :paper plane: From ``||sprites:Sprites||`` drag ``||sprites:set scottKellySprite image to||`` and ``||sprites:set scottKellySprite ghost through tiles||`` into the bottom of the ``||info(no click):on countdown end||`` container.
+- :tree: From ``||scene:Scene||`` drag ``||scene:end screen effect||`` into the ``||info(no click):on countdown end||`` container.
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
 
@@ -352,14 +389,29 @@ namespace SpriteKind {
 }
 ```
 
-## Add mini-game directions and background music!
+## Add mini-game directions!
 
-Let the player know how to play the gorilla suit mini-game, then add background music to enhance the mini-game!
+Let the player know how to play the gorilla suit mini-game by adding additional directions!
 
-- :circle: From ``||game:Game||`` drag ``||game:show long text||`` below the existing ``||game(no click):show long text||`` block inside ``||function:function gorillaGame||``.
+- :circle: From ``||game:Game||`` drag ``||game:show long text||`` below the existing ``||game(no click):show long text||`` block inside ``||functions(no click):function gorillaGame||``.
 - :mouse pointer: Click inside the white bubble to add instructions, such as "You have 10 seconds to scare as many crew members as possible!"
 - :mouse pointer: Select ``||game(noclick):center||`` from the dropdown to match the placement of the other dialog box.
-- :headphones: From ``||music:Music||`` drag ``||music:play melody||`` underneath. Click to open the melody editor, then select or create a melody to play during the mini-game. Adjust the tempo, or speed of the music, too.
+
+![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
+
+```blocks
+function gorillaGame () {
+    game.showLongText("My twin brother Mark sent me a gorilla suit to have some fun with the ISS crew!", DialogLayout.Center)
+    game.showLongText("You have 10 seconds to scare as many crew members as possible!", DialogLayout.Center)
+}
+```
+
+## Add background music!
+
+Create some background music to enhance the mini-game!
+
+- :headphones: From ``||music:Music||`` drag ``||music:play melody||`` underneath the ``||game(no click):show long text||`` block. 
+- :mouse pointer: Click to open the melody editor, then select or create a melody to play during the mini-game. Adjust the tempo, or speed of the music, too.
 - :headphones: Click ▼ then select ``||music(noclick):looping in background||`` so the sound effect plays throughout the mini-game.
 
 ![Logo](https://github.com/Code-Ninjas-Home-Office/game-building-session-tutorials-2024/blob/master/images/CN-Logo.png?raw=true "CN Logo") 
@@ -381,7 +433,7 @@ let scottKellySprite: Sprite = null
 
 ## Prevent Scott Kelly from exiting the ISS while dressed in the gorilla suit!
 
-If you are adding the space walk mini-game to your project, add the code below to prevent the Scott Kelly sprite from exiting the ISS during the gorilla suit mini-game!
+Prevent the Scott Kelly sprite from exiting the ISS during the gorilla suit mini-game!
 
 - :tree: From ``||scene:Scene||`` drag 2 ``||scene:set wall at||`` blocks into the ``||functions(no click):function gorillaGame||`` container.
 - :mouse pointer: Set both toggles to ``||loops(no click):<ON>||``. Set ``||scene(no click):col||`` to **23** in both blocks, and set ``||scene(no click):row||`` to **11** in one block and **12** in the other.
@@ -429,6 +481,4 @@ Congratulations on completing the Scott Kelly Gorilla Suit mini game!
 
 ![BTS Ninja Image](https://github.com/Code-Ninjas-Home-Office/scott-kelly-games/blob/master/images/BTS%20Ninja%20Image.png?raw=true "BTS Ninja Image") 
 
-Click **Done** then give your project a title and click **Share Project** to create a shareable link to access your game! 
-
-Then, add the Scott Kelly Space Walk mini-game to your project!
+Click **Done** then give your project a title and click **Share Project** to create a shareable link to access your game!
