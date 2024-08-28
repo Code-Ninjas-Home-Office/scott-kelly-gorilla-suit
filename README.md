@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://Code-Ninjas-Home-Office.github.io/scott-kelly-iss-gorilla-suit-minigame/](https://bmarslandcn.github.io/scott-kelly-iss-gorilla-suit-minigame/)
+> Open this page at [https://bmarslandCN.github.io/scott-kelly-iss-gorilla-suit-minigame/](https://bmarslandcn.github.io/scott-kelly-iss-gorilla-suit-minigame/)
 
 ## Use as Extension
 
