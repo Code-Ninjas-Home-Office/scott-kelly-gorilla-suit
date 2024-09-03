@@ -35,7 +35,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`damagedPanelRight`, function 
     tiles.setTileAt(location, assets.tile`solarPanelRight`)
     info.changeScoreBy(1)
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`spaceWalkBottom`, function (sprite, location) {
     if (sprite.image.equals(sk_images.spacesuitRight) || sprite.image.equals(sk_images.spacesuitLeft)) {
         sprite.setImage(sk_images.scottKellyLeft)
         tiles.setWallAt(tiles.getTileLocation(24, 11), true)
@@ -129,7 +129,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`clipboardTile`, function (spr
     game.showLongText("You have collected " + objectsCollected + " of 6 objects!", DialogLayout.Center)
     objectsCollected += 1
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile23`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`spaceWalkTop`, function (sprite, location) {
     if (sprite.image.equals(sk_images.spacesuitRight) || sprite.image.equals(sk_images.spacesuitLeft)) {
         sprite.setImage(sk_images.scottKellyLeft)
         tiles.setWallAt(tiles.getTileLocation(24, 11), true)
